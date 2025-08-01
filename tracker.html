@@ -2,248 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>SkillLens - [PAGE-TITLE]</title>
+  <title>SkillLens — Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --dark-bg: #191927;
-      --mid-bg: #292d3e;
-      --primary-accent: #ffd16d;
-      --card-glass: rgba(255,255,255,0.95);
-      --card-shadow: 0 8px 32px rgba(34,60,140,0.10), 0 2px 8px rgba(180,200,210,0.17);
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      background: linear-gradient(98deg, var(--dark-bg) 54%, var(--mid-bg) 92%, #f4fafe 99%);
-    }
-    .navbar.skill-nav {
-      background: linear-gradient(98deg, var(--dark-bg) 60%, var(--mid-bg) 100%);
-      box-shadow: 0 3px 14px rgba(100,130,225,0.07);
-      border-bottom: 1px solid #23233a;
-    }
-    .skill-nav .navbar-brand {
-      font-weight: 900;
-      font-size: 1.8rem;
-      color: var(--primary-accent) !important;
-      letter-spacing:.01em;
-    }
-    .skill-nav .nav-link {
-      font-weight: 600;
-      color: #fff !important;
-      opacity: 0.91;
-      font-size: 1.09rem;
-      margin-left: .7em;
-      margin-right: .7em;
-      transition: color 0.16s;
-    }
-    .skill-nav .nav-link.active,
-    .skill-nav .nav-link:focus,
-    .skill-nav .nav-link:hover {
-      color: var(--primary-accent) !important;
-      text-decoration: underline 0.12em var(--primary-accent);
-      opacity: 1;
-    }
-    .hero-section {
-      min-height: calc(100vh - 68px);
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding-left: 7vw;
-      padding-right: 7vw;
-    }
-    .hero-left {
-      color: #fff;
-      max-width: 500px;
-      align-self: center;
-      padding-right: 2.7vw;
-    }
-    .hero-headline {
-      font-size: 2.65rem;
-      font-weight: 900;
-      line-height: 1.14;
-      margin-bottom: 1.12rem;
-      letter-spacing: 0.01em;
-    }
-    .hero-headline span {
-      color: var(--primary-accent);
-      background: linear-gradient(98deg,#ffe49c 60%,var(--primary-accent) 100%);
-      border-radius: 6px;
-      padding: 2px 6px;
-    }
-    .hero-desc {
-      font-size: 1.19rem;
-      color: #dbdfea;
-      font-weight: 400;
-      margin-bottom: 1.9rem;
-      line-height: 1.55;
-    }
-    .hero-buttons .btn {
-      border-radius: 35px;
-      padding: 0.7em 2em;
-      font-weight: 700;
-      font-size: 1.06rem;
-      margin-right: .6em;
-      box-shadow: 0 2px 20px rgba(255,209,109,0.12);
-    }
-    .btn-skill-primary {
-      background: var(--primary-accent);
-      color: #191927;
-      border: none;
-    }
-    .btn-skill-primary:hover {
-      background: #ffc035;
-      color: #191927;
-    }
-    .btn-skill-outline {
-      border: 2px solid var(--primary-accent);
-      color: var(--primary-accent);
-      background: transparent;
-    }
-    .btn-skill-outline:hover {
-      background: #fff7e1;
-      color: #1f2338;
-    }
-    .hero-testimonial {
-      font-style: italic;
-      border-left: 5px solid var(--primary-accent);
-      background: rgba(255,255,255,0.07);
-      padding: 1em 1.3em;
-      margin-top: 2.1em;
-      border-radius: 0 14px 14px 0;
-      font-size: 1.04rem;
-      color: #ffe39d;
-      max-width: 380px;
-      box-shadow: 0 2px 12px #292f3e18;
-    }
-    .blockquote-footer {
-      color: #fff1b8;
-      font-size: .95rem;
-      margin-top: 0.7em;
-    }
-    .hero-right {
-      flex:1 1 44%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 310px;
-      padding-left: 2vw;
-      padding-right: 0;
-    }
-    .hero-graphic-card {
-      background: var(--card-glass);
-      border-radius: 20px;
-      box-shadow: var(--card-shadow);
-      padding: 2.2rem 1.6rem 1.4rem 1.6rem;
-      min-width: 285px;
-      width: 350px;
-      max-width: 96vw;
-      position: relative;
-      animation: floatCard 2.9s cubic-bezier(.7,1.09,.59,1.01) infinite alternate;
-      border:1.5px solid #e5e7fa;
-      transition:box-shadow 0.3s;
-    }
-    .hero-graphic-card svg {
-      display: block;
-      margin:auto;
-    }
-    .graphic-title {
-      font-weight:800;
-      margin-top: 1.17em;
-      color: #456ae0;
-      margin-bottom: 0.43em;
-      font-size:1.19rem;
-    }
-    .graphic-desc {
-      color: #62739d;
-      font-size:1.03rem;
-      font-weight: 500;
-      margin-bottom:0.3em;
-    }
-    @keyframes floatCard {
-      0% { box-shadow: var(--card-shadow); top:0; }
-      100% { box-shadow: 0 13px 34px rgba(69, 140, 251, 0.13), 0 2.5px 12px #ffe48e; top:-8px; }
-    }
-    @media (max-width: 992px) {
-      .hero-section { flex-direction: column; align-items: flex-start; padding-left:8vw; padding-right:8vw;}
-      .hero-left {padding-right:0;max-width: 99vw;}
-      .hero-right {margin-left:0;padding-left:0;margin-top:2.2em;}
-    }
-    @media (max-width: 767px) {
-      .hero-section { padding-left:3vw;padding-right:3vw;}
-      .hero-headline {font-size:1.25rem;}
-      .hero-graphic-card {padding:1em;min-width:180px;width:92vw;}
-    }
+    body{background: linear-gradient(102deg, #191927 60%, #23263c 100%);color:#f7f7fd;min-height:100vh;font-family:'Inter',sans-serif;}
+    .skill-nav{background:linear-gradient(98deg,#191927 60%,#23263c 100%);border-bottom:1.2px solid #23233a;}
+    .skill-nav .navbar-brand{font-weight:900;font-size:1.8rem;color:#FFD16D!important;}
+    .skill-nav .nav-link{font-weight:600;color:#f6e2a8!important;font-size:1.13rem;}
+    .tracker-section{min-height:calc(100vh - 69px);display:flex;justify-content:center;align-items:center;padding:64px 7vw;}
+    .tracker-left{flex:1 1 50%;max-width:550px;margin-right:3vw;}
+    .tracker-title{font-size:2.18rem;font-weight:900;color:#ffd16d;}
+    .glass-card{background:rgba(255,255,255,0.085);border-radius:1.1em;padding:1.2em 1.3em 1em 1.08em;margin-bottom:1.1em;font-size:1.07rem;color:#ffecc9;border-left:5px solid #FFD16D;}
+    .tracker-right{flex:1 1 40%;min-width:260px;display:flex;align-items:center;justify-content:center;}
+    @media(max-width:992px){.tracker-section{flex-direction:column;align-items:flex-start;gap:2em;}.tracker-left,.tracker-right{max-width:98vw;}}
   </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg skill-nav">
   <div class="container">
-    <a class="navbar-brand" href="index.html">SkillLens</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSkill"
-      aria-controls="navSkill" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="home.html">SkillLens</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSkill"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse justify-content-end" id="navSkill">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="analyzer.html">Analyze</a></li>
+        <li class="nav-item"><a class="nav-link" href="roadmap.html">Roadmap</a></li>
+        <li class="nav-item"><a class="nav-link active" href="tracker.html">Tracker</a></li>
         <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Edit Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile-view.html">View Profile</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<section class="hero-section w-100">
-  <div class="hero-left pe-2">
-    <div class="hero-headline mb-2">Skill <span>Tracker</span></div>
-    <div class="hero-desc">Record your progress. Drag sliders below to update skill completion as you study!</div>
-    <div id="tracker-list"></div>
-    <button id="save-progress-btn" class="btn btn-skill-primary mt-3">Save Progress</button>
+<section class="tracker-section w-100">
+  <div class="tracker-left pe-2">
+    <div class="tracker-title mb-2">Your Tracker</div>
+    <div id="tracker-steps"></div>
+    <button id="save-progress-btn" class="btn btn-skill-primary me-2 mt-2">Save Progress</button>
   </div>
-  <div class="hero-right">
-    <div class="hero-graphic-card text-center">
-      <svg width="120" height="120" viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="56" fill="#edf8ef"/>
-        <rect x="36" y="76" width="50" height="14" rx="5" fill="#b7faaf"/>
-        <rect x="36" y="50" width="32" height="14" rx="5" fill="#c2fdde"/>
-      </svg>
-      <div class="graphic-title">Stay on Track</div>
-      <div class="graphic-desc">Small steps add up!</div>
-    </div>
+  <div class="tracker-right">
+    <svg width="110" height="110" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="#eaf4fd" stroke="#ffd16d" stroke-width="7"/><text x="35" y="70" fill="#ffd16d" font-size="32" font-weight="bold" id="percent-progress"></text></svg>
   </div>
 </section>
+<footer class="bg-dark text-center py-4 border-top mt-auto" style="color:#ffeea1;background: #23263c;">
+  <div class="container"><small>&copy; 2025 SkillLens. All rights reserved.</small></div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedRoadmap = JSON.parse(localStorage.getItem('savedRoadmap'));
-    const trackerListEl = document.getElementById('tracker-list');
-    if (!savedRoadmap || !savedRoadmap.steps) return trackerListEl.innerHTML = '<div class="hero-graphic-card bg-warning text-dark">No saved roadmap—please generate one first!</div>';
-    let progressData = JSON.parse(localStorage.getItem('skillProgress')) || {};
-    trackerListEl.innerHTML =
-      savedRoadmap.steps.map(skill => {
-        const val = progressData[skill] || 0;
-        return `<div class="hero-graphic-card mb-3">
-          <label class="form-label">${skill}</label>
-          <input type="range" min="0" max="100" value="${val}" id="progress-${skill}" class="form-range" style="accent-color:#ffd16d;">
-          <small>${val}% complete</small>
-        </div>`;
-      }).join('');
-    trackerListEl.oninput = e => {
-      if (e.target.tagName === 'INPUT' && e.target.type === 'range') {
-        e.target.nextElementSibling.textContent = `${e.target.value}% complete`;
-      }
-    };
-    document.getElementById('save-progress-btn').onclick = () => {
-      const inputs = trackerListEl.querySelectorAll('input[type=range]');
-      inputs.forEach(input => {
-        const skill = input.id.replace('progress-', '');
-        progressData[skill] = input.value;
-      });
-      localStorage.setItem('skillProgress', JSON.stringify(progressData));
-      alert('Progress saved!');
+const trackerSteps = JSON.parse(localStorage.getItem('roadmapLackingSkills') || '[]');
+let progress = JSON.parse(localStorage.getItem('trackerProgress') || '[]');
+document.addEventListener('DOMContentLoaded', () => {
+  const trackerDiv = document.getElementById('tracker-steps');
+  if (!trackerSteps.length) {
+    trackerDiv.innerHTML = "<div class='glass-card bg-success text-white text-center'>No more skill gaps!</div>";
+    document.getElementById('percent-progress').textContent = "100%";
+    return;
+  }
+  trackerDiv.innerHTML = trackerSteps.map((skill, i) => `
+    <div class="glass-card d-flex align-items-center">
+      <input type="checkbox" id="step${i}" ${progress[i] ? "checked" : ""} style="accent-color:#ffd16d;margin-right:.8em;">
+      <label for="step${i}" style="font-weight:600;color:#ffd16d;">${skill}</label>
+    </div>
+  `).join('');
+  updatePercent();
+  trackerSteps.forEach((_, i) => {
+    document.getElementById(`step${i}`).onchange = (e) => {
+      progress[i] = e.target.checked;
+      updatePercent();
     };
   });
+  document.getElementById('save-progress-btn').onclick = () => {
+    localStorage.setItem('trackerProgress', JSON.stringify(progress));
+    alert('Progress saved!');
+  };
+  function updatePercent() {
+    const done = progress.filter(Boolean).length;
+    const percent = trackerSteps.length ? Math.round(done*100/trackerSteps.length) : 100;
+    document.getElementById('percent-progress').textContent = percent + "%";
+  }
+});
 </script>
+</body>
+</html>
