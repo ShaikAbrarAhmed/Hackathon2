@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkillLens — Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --dark-bg: #191927; --mid-bg: #23263c; --primary-accent: #FFD16D;
+    }
+    body {
+      font-family: 'Inter',sans-serif;
+      background: linear-gradient(102deg, var(--dark-bg) 60%, var(--mid-bg) 100%);
+      color: #f7f7fd; min-height: 100vh;
+    }
+    .skill-nav { background: linear-gradient(98deg, var(--dark-bg) 60%, var(--mid-bg) 100%); border-bottom:1.2px solid #23233a; }
+    .skill-nav .navbar-brand { font-weight:900; font-size:1.8rem; color:var(--primary-accent)!important; }
+    .skill-nav .nav-link { color:#f6e2a8 !important; font-size:1.13rem; margin:.7em; opacity:.93; }
+    .skill-nav .nav-link.active,
+    .skill-nav .nav-link:focus,
+    .skill-nav .nav-link:hover { color:var(--primary-accent)!important; background:#2e2907!important; }
+    .profile-section { min-height:68vh; display:flex; align-items:center; justify-content:center; padding:4vw 0; }
+    .profile-card {
+      background: rgba(255,255,255,0.07); border-radius: 1.4em; box-shadow: 0 6px 38px #ffd16d27;
+      padding: 2.7rem 2.8rem 2.7rem 2.8rem;
+      min-width:320px; max-width:380px; width:100%;
+      border-left: 5px solid var(--primary-accent);
+      color:#ffeec9;
+      text-align: center;
+    }
+    .profile-name { font-size:2rem; font-weight:800; color: var(--primary-accent);}
+    .profile-email { color: #ffe9a8; font-size:1.1rem; margin-bottom:1.3em; }
+    .profile-bio { color:#fffbe7;font-size:1.02rem; font-style:italic;}
+    .edit-link { display:block; margin-top:2em; color:var(--primary-accent);}
+    .edit-link:hover { color:#ffee60; text-decoration:underline;}
+    @media (max-width:550px){ .profile-card{padding:1em .7em 1.2em .7em;} }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg skill-nav">
+  <div class="container">
+    <a class="navbar-brand" href="home.html">SkillLens</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSkill"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navSkill">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="analyzer.html">Analyze</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link active" href="profile-view.html">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="profile-section">
+  <div class="profile-card" id="profile-card">
+    <!-- Profile will load here -->
+  </div>
+</section>
+<footer class="bg-dark text-center py-4 border-top mt-auto" style="color:#ffeea1;background: #23263c;">
+  <div class="container"><small>&copy; 2025 SkillLens. All rights reserved.</small></div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const card = document.getElementById('profile-card');
+    const data = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    if (!data.name && !data.email) {
+      card.innerHTML = '<div class="text-warning">No profile found. <br><a href="profile.html" class="edit-link">Edit your profile</a></div>';
+      return;
+    }
+    card.innerHTML = `
+      <div class="profile-name mb-2">${data.name || ''}</div>
+      <div class="profile-email mb-3">${data.email || ''}</div>
+      <div class="profile-bio mb-2">${data.bio ? '"' + data.bio + '"' : ''}</div>
+      <a href="profile.html" class="edit-link">Edit Profile</a>
+    `;
+  });
+</script>
+</body>
+</html>

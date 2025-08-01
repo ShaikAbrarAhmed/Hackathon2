@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>SkillLens — Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --dark-bg: #191927;
+      --mid-bg: #23263c;
+      --gold-gradient: linear-gradient(92deg,#ffd16d 53%,#ffc700 100%);
+      --primary-accent: #FFD16D;
+      --hero-shadow: 0 10px 48px #17192760;
+    }
+    body {
+      font-family: 'Inter',sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(102deg, var(--dark-bg) 60%, var(--mid-bg) 100%);
+      color: #f7f7fd;
+    }
+    .skill-nav {
+      background: linear-gradient(98deg, var(--dark-bg) 60%, var(--mid-bg) 100%);
+      box-shadow: 0 3px 14px rgba(80,120,225,.09);
+      border-bottom: 1.2px solid #23233a;
+    }
+    .skill-nav .navbar-brand {
+      font-weight: 900; font-size: 1.8rem; color: var(--primary-accent)!important; letter-spacing:.02em;
+    }
+    .skill-nav .nav-link {
+      font-weight: 600; color: #f6e2a8 !important; font-size: 1.13rem;
+      margin-left: .7em; margin-right: .7em; opacity:0.93;
+      border-radius: 20px; padding: 7px 18px !important; transition: color 0.14s;
+    }
+    .skill-nav .nav-link.active,
+    .skill-nav .nav-link:focus,
+    .skill-nav .nav-link:hover {
+      color: var(--primary-accent) !important; background: #2e2907 !important; opacity:1;
+      text-decoration: underline 0.14em var(--primary-accent);
+    }
+    .home-split {
+      min-height: calc(100vh - 69px); display: flex; justify-content:center; align-items:center;
+      padding: 70px 5vw 40px 7vw; gap:3vw; max-width:1370px; margin:0 auto;
+    }
+    .home-left { flex:1 1 50%; max-width:520px; padding-right:4vw;}
+    .home-headline {
+      font-size:2.62rem; font-weight: 900; line-height: 1.08; margin-bottom:1.1em; letter-spacing:.013em;
+    }
+    .gold-highlight {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text; color: var(--primary-accent); font-weight: bold;
+    }
+    .home-desc {
+      font-size:1.16rem; color:#ffeeb0; margin-bottom:2.37rem; line-height:1.6;
+    }
+    .btn-skill-primary {
+      border-radius: 36px; padding: 0.74em 2.2em; font-weight:700; background: var(--gold-gradient); color:#191927; border:none;
+      font-size:1.09rem; margin-right:.67em; margin-bottom:.28em; box-shadow:0 2px 18px #ffd16d18;
+    }
+    .btn-skill-primary:hover { background:linear-gradient(92deg,#ffc700 10%,#ffd16d 95%); color:#000;}
+    .btn-skill-outline {
+      border: 2px solid var(--primary-accent); color: var(--primary-accent); background:transparent; border-radius:36px; font-weight:700; padding:.74em 2.2em; font-size:1.09rem;
+    }
+    .btn-skill-outline:hover{ background:#27220a; color:#ffe477;}
+    .glass-card {
+      background: rgba(255,255,255,0.085); border-radius: 1.2em; box-shadow: var(--hero-shadow);
+      padding: 1.2em 1.7em 1em 1.1em; margin-top:2.7em; font-size:1.07rem; color: #ffecc9;
+      border-left: 5px solid var(--primary-accent);
+    }
+    .blockquote-footer { color: #fff1b8; font-size: .99rem; margin-top: 0.65em; }
+    .home-right {
+      flex:1 1 55%; min-width:320px; display:flex; align-items:center; justify-content:center; position:relative;
+    }
+    .dash-svg {
+      width: 430px; max-width: 96vw; height:auto; filter: drop-shadow(0 9px 44px #ffe47d41);
+    }
+    @media (max-width: 992px) {
+      .home-split { flex-direction: column; align-items:flex-start; padding:38px 2vw 19px 2vw; gap:2em;}
+      .home-left, .home-right { max-width:99vw; padding-right:0;}
+      .dash-svg { width:93vw; }
+    }
+    @media (max-width: 600px) {
+      .home-headline { font-size: 1.19rem;}
+      .home-desc { font-size: .99rem;}
+      .btn-skill-primary, .btn-skill-outline {width: 100%;margin-bottom:1em;}
+      .glass-card{ font-size: .95rem;}
+      .dash-svg { width:98vw;}
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg skill-nav">
+  <div class="container">
+    <a class="navbar-brand" href="home.html">SkillLens</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSkill"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navSkill">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="analyzer.html">Analyze</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Edit Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile-view.html">View Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="home-split">
+  <div class="home-left">
+    <h1 class="home-headline">
+      Build your <span class="gold-highlight">bridge</span> to the <span class="gold-highlight">skills</span> that matter most.
+    </h1>
+    <div class="home-desc">
+      Instantly see where you stand, discover what to focus on next, and track your journey from skill gaps to mastery—all in one elegant dashboard.<br>
+      <b>Let’s get you closer to your dream role!</b>
+    </div>
+    <div class="mb-2">
+      <a href="analyzer.html" class="btn btn-skill-primary">Start Skill Analysis</a>
+      <a href="dashboard.html" class="btn btn-skill-outline">Go to Dashboard</a>
+    </div>
+    <div class="glass-card mt-5">
+      “SkillLens showed me exactly what I lacked and how to fix it—my path has never been clearer.”
+      <div class="blockquote-footer">Ritika S., Data Science Grad</div>
+    </div>
+  </div>
+  <div class="home-right">
+    <svg class="dash-svg" viewBox="0 0 470 320" fill="none">
+      <defs>
+        <linearGradient id="goldGrad" x1="120" y1="90" x2="360" y2="180" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#ffd16d"/>
+          <stop offset="1" stop-color="#ffc700"/>
+        </linearGradient>
+      </defs>
+      <rect x="55" y="40" width="350" height="180" rx="27" fill="#fff0c4" fill-opacity="0.10"/>
+      <rect x="90" y="80" width="110" height="18" rx="8" fill="#fffbe6" fill-opacity=".85"/>
+      <rect x="90" y="120" width="54" height="12" rx="6" fill="#ffeccd" fill-opacity=".82"/>
+      <rect x="160" y="120" width="80" height="12" rx="6" fill="#fffbe6" fill-opacity="1"/>
+      <ellipse cx="340" cy="115" rx="41" ry="41" fill="#fff8e4" stroke="url(#goldGrad)" stroke-width="2"/>
+      <text x="318" y="132" fill="#ffc700" font-size="25" font-weight="bold">90%</text>
+      <path d="M340 172 Q398 135 398 115 Q398 62 340 54"
+            stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <circle cx="398" cy="115" r="13" fill="url(#goldGrad)" opacity="0.8"/>
+      <circle cx="340" cy="115" r="26" fill="#fffbe6" opacity="0.30"/>
+    </svg>
+  </div>
+</section>
+
+<footer class="bg-dark text-center py-4 border-top mt-auto" style="color:#ffeea1;background: #23263c;">
+  <div class="container">
+    <small>&copy; 2025 SkillLens. All rights reserved.</small>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

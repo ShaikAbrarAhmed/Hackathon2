@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkillLens — Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --dark-bg: #191927;
+      --mid-bg: #23263c;
+      --primary-accent: #FFD16D;
+      --gold-gradient: linear-gradient(92deg,#ffd16d 48%,#ffc700 100%);
+    }
+    body {
+      font-family: 'Inter',sans-serif;
+      background: linear-gradient(102deg, var(--dark-bg) 60%, var(--mid-bg) 100%);
+      color: #f7f7fd; min-height: 100vh;
+    }
+    .skill-nav {
+      background: linear-gradient(98deg, var(--dark-bg) 60%, var(--mid-bg) 100%);
+      box-shadow: 0 3px 14px rgba(80,120,225,.09); border-bottom:1.2px solid #23233a;
+    }
+    .skill-nav .navbar-brand {
+      font-weight: 900; font-size: 1.8rem; color: var(--primary-accent)!important; letter-spacing:.02em;
+    }
+    .skill-nav .nav-link {
+      font-weight: 600; color: #f6e2a8 !important; font-size: 1.13rem;
+      margin-left: .7em; margin-right: .7em; opacity:0.93;
+    }
+    .skill-nav .nav-link.active, .skill-nav .nav-link:focus, .skill-nav .nav-link:hover {
+      color: var(--primary-accent)!important; background: #2e2907!important;
+      text-decoration: underline 0.14em var(--primary-accent);
+      opacity:1;
+    }
+    .login-section {
+      min-height:70vh; display:flex; align-items:center; justify-content:center;
+      padding: 5vw 0;
+    }
+    .login-card {
+      background: rgba(255,255,255,0.055); border-radius: 1.4em; box-shadow: 0 6px 38px #ffd16d27;
+      padding: 2.5rem 2.3rem 2.3rem 2.3rem;
+      min-width:330px; max-width: 390px; width:100%;
+      border-left: 5px solid var(--primary-accent);
+    }
+    .login-card h2 {color:var(--primary-accent);font-weight:800;font-size:2rem;}
+    .form-label {font-weight:600;color: #ffd16d;}
+    .btn-gold {
+      background: var(--gold-gradient); color:#191927; border-radius:31px; border:none; font-weight:700;
+      padding:.7em 2em; font-size:1.08rem; margin-top:.7em; box-shadow:0 2px 18px #ffd16d20;
+      transition:background .14s;
+    }
+    .btn-gold:hover { background:linear-gradient(92deg,#ffc700 10%,#ffd16d 94%);}
+    .form-control {background:rgba(255,255,240,0.15); color:#fff; border:none;}
+    .form-control:focus {box-shadow:0 0 0 1px #ffd16d;}
+    .login-link {color:#ffd16d;}
+    .login-link:hover {color:#fffad3; text-decoration:underline;}
+    @media (max-width:550px){.login-card{padding:1em .7em 1.2em .7em;} }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg skill-nav">
+  <div class="container">
+    <a class="navbar-brand" href="home.html">SkillLens</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSkill"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navSkill">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="analyzer.html">Analyze</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="login-section">
+  <form class="login-card shadow-lg" id="login-form">
+    <h2 class="mb-4 text-center">Sign in to SkillLens</h2>
+    <div class="mb-3">
+      <label for="login-email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="login-email" placeholder="Enter your email" required/>
+    </div>
+    <div class="mb-3">
+      <label for="login-password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="login-password" placeholder="Password" required/>
+    </div>
+    <button class="btn btn-gold w-100" type="submit">Login</button>
+    <div class="text-center mt-3">
+      <span>Don't have an account? <a class="login-link" href="signup.html">Sign Up</a></span>
+    </div>
+  </form>
+</section>
+<footer class="bg-dark text-center py-4 border-top mt-auto" style="color:#ffeea1;background: #23263c;">
+  <div class="container">
+    <small>&copy; 2025 SkillLens. All rights reserved.</small>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('login-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  // Fake login for demo: store state and redirect
+  localStorage.setItem('isLoggedIn', 'true');
+  localStorage.setItem('userEmail', document.getElementById('login-email').value.trim());
+  window.location.href = 'home.html';
+});
+</script>
+</body>
+</html>
